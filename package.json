@@ -1,0 +1,16 @@
+{
+  "name": "rivet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "author": "danny15002",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.20.0",
+    "babel-preset-babili": "0.0.9",
+    "babel-preset-react": "^6.16.0"
+  }
+}
