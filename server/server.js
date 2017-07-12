@@ -1,5 +1,6 @@
 // import modules
 const restify = require('restify');
+const fs = require('fs');
 // const router = require('./router.js');
 
 /**

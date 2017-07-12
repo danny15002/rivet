@@ -5,13 +5,8 @@ class App extends React.Component {
     super(props)
   }
 
-  componentWillMount() {
-    // browserHistory.push('/login');
-  }
-
   render() {
     return <div>
-      <Header/>
       {this.props.children}
     </div>
   }
@@ -22,11 +17,8 @@ const Route = ReactRouter.Route;
 const IndexRoute = ReactRouter.IndexRoute;
 
 const router = <Router history={browserHistory}>
-  <Route path='/login' component={LoginPage}/>
   <Route path='/' component={App}>
-    <IndexRoute component={MoviePage}/>
-    <Route path='/details/:title' component={MovieDetails}/>
-    <Route path='/edit/:title' component={MovieEdit}/>
+    <IndexRoute component={ContentDisplay}/>
   </Route>
 </Router>;
 
