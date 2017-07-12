@@ -1,0 +1,10 @@
+{
+  "presets": [
+    "react",
+  ],
+  "env": {
+    "production": {
+      "presets": ["babili"]
+    }
+  }
+}
