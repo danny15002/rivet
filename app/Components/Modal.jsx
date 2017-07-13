@@ -1,4 +1,4 @@
-class ContentDisplay extends React.Component {
+class Modal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -6,7 +6,7 @@ class ContentDisplay extends React.Component {
   }
 
   render() {
-    return <div className="content-display">
+    return <div className="modal">
       Content Display
       <BigPicture className="big-picture"/>
       <Info className="info"/>

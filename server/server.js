@@ -25,8 +25,42 @@ function serveStatic(req, res) {
       res.write(data);
       res.send();
     } else if (error) {
-      res.send(error);
+      res.send(error); // does this even work
     }
+  });
+}
+
+function getData(req, res) {
+  const client = restify.createClient({
+    url: 'https://api.rivet.works'
+  });
+
+  const outerRes = res; // TODO: better name for this
+
+  client.get('/embedded/widget/letuscorporation-grid', (err, req) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    req.on('result', (err, res) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+
+      res.body = '';
+      res.setEncoding('utf8');
+      res.on('data', chunk => {
+        res.body += chunk;
+      });
+
+      res.on('end', () => {
+        console.log(JSON.parse(res.body));
+        // outerRes.write(res.body);
+        outerRes.send(JSON.parse(res.body));
+      });
+    });
   });
 }
 
@@ -37,6 +71,7 @@ const server = new restify.createServer();
 server.use(restify.queryParser());
 server.use(restify.bodyParser());
 // server.use(restify.CORS());
+server.get({ name: 'getData', path: 'get-data' }, getData);
 server.get({ name: 'root', path: /.*/ }, serveStatic);
 
 

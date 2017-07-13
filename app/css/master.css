@@ -1,0 +1,20 @@
+
+.modal {
+  position: absolute;
+  height: calc(100vh - 4%);
+  width: calc(100vw - 4%);
+  top: 2%;
+  left: 2%;
+  background: black;
+}
+
+.small-picture {
+  display: inline-block;
+  margin: 30px;
+}
+
+.small-picture > img {
+  display: inline-block;
+  width: 300px;
+  height: 300px;
+}

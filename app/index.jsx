@@ -18,7 +18,9 @@ const IndexRoute = ReactRouter.IndexRoute;
 
 const router = <Router history={browserHistory}>
   <Route path='/' component={App}>
-    <IndexRoute component={ContentDisplay}/>
+    <IndexRoute component={MainPage}>
+    </IndexRoute>
+    <Route path='/reviews/:id' component={Modal}/>
   </Route>
 </Router>;
 

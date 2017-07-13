@@ -107,6 +107,13 @@ fs.watch('./app', { recursive: true }, (eventType, filename) => {
   console.log('SOMETHING CHANGED AT: ', directory + filename);
   console.log('FILE CHANGED: ', name)
   if (!name) name = filename.match(/\\(.+)\.js$/);
+  if (!name) {
+    name = filename.match(/\\(.+)\.css$/);
+    if (name) {
+      readFile(directory + filename, 'utf-8')
+        .then(result => writeFile('./bundle/' + name[1] + '.css', result));
+    }
+  }
   if (!name) return;
 
   transformFile(directory + filename, {})
