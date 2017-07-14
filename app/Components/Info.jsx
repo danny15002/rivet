@@ -4,7 +4,6 @@ class Info extends React.Component {
   }
 
   render() {
-    console.log('info', this.props.titleInfo)
     return <div className="info">
       <div>
         <div className="info-heading">

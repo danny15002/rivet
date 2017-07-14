@@ -3,16 +3,30 @@ class PicNav extends React.Component {
     super(props);
 
     this.state = {
-      startIdx: 0
+      startIdx: this.props.pictures.length - 1
     };
+
+    this.getVisiblePictures = this.getVisiblePictures.bind(this);
+  }
+
+  getVisiblePictures() {
+    const pics = this.props.pictures;
+    const start = this.state.startIdx;
+    const N = pics.length;
+
+    if (N <= 8) {
+      return pics;
+    }
+
+    if ((start + 8) <= N) {
+      return pics.slice(start, start + 7);
+    } else if ((start + 8) > N) {
+      return pics.slice(start, N).concat(pics.slice(0, start + 8 - N));
+    }
   }
 
   render() {
-    const pics = this.props.pictures;
-    const startIdx = this.state.startIdx;
-    console.log('pic nav', this.props.pictures)
-    const visiblePictures =
-      [ pics[pics.length - 1] ].concat(pics.slice(startIdx, startIdx + 7));
+    const visiblePictures = this.getVisiblePictures();
 
     return <div className="pic-nav">
       { visiblePictures.map( pic => <Thumbnail src={pic.thumbnail.url} />) }

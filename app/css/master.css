@@ -1,25 +1,52 @@
+.locked-body {
+  overflow: hidden;
+}
+
+.modal-container {
+  position: fixed;
+  height: 740px;
+  width: 1165px;
+  top: 2%;
+  left: calc((100vw - 1165px) / 2);
+  top: calc((100vh - 740px) / 2);
+  background: #EEE;
+  z-index: 5;
+}
+
+.hover-pointer:hover {
+  cursor: pointer;
+}
+
+.modal-left-arrow {
+  position: relative;
+  top: 47%;
+  left: 8px;
+}
+
+.modal-right-arrow {
+  position: relative;
+  left: 1094px;
+  top: 47%;
+}
 
 .modal {
-  position: absolute;
+  position: fixed;
   height: 640px;
   width: 1065px;
   top: 2%;
   left: calc((100vw - 1065px) / 2);
   top: calc((100vh - 640px) / 2);
   background: gray;
+  z-index: 5;
 }
 
 .modal-close {
   float: right;
-  color: lightblue;
-
+  color: black;
+  z-index: 10;
   top: 1%;
   right: 1%;
   position: absolute;
-}
-
-.modal-close:hover {
-  cursor: pointer;
 }
 
 .modal > div {
@@ -33,16 +60,29 @@
 }
 
 .modal-right {
+  position: relative;
   width: 425px;
 }
 
+#veil {
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: .8;
+  background: black;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+}
+
 .pic-nav {
-  background: transparent;
+  background: rgba(0, 0, 0, 0.6);
   overflow-x: hidden;
-  height: 110px;
+  overflow-y: hidden;
+  height: 90px;
   white-space: nowrap;
   position: absolute;
-  bottom: -20px;
+  bottom: 0;
   width: 640px;
 }
 

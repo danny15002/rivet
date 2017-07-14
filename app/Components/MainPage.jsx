@@ -39,7 +39,7 @@ class MainPage extends React.Component {
   }
 
   render() {
-    console.log(this)
+    console.log('main page render function', pictures)
     if (this.props.children) {
       const childrenWithProps = React.cloneElement(this.props.children, {
         pictures: this.state.pictures
@@ -55,6 +55,5 @@ class MainPage extends React.Component {
       { this.state.pictures.map((pic, idx) =>
           <SmallPicture key={idx} pic={pic} index={idx}/>)}
     </div>;
-
-  }
+  };
 }
