@@ -1,10 +1,11 @@
 
 .modal {
   position: absolute;
-  height: auto;
+  height: 640px;
   width: 1065px;
   top: 2%;
   left: calc((100vw - 1065px) / 2);
+  top: calc((100vh - 640px) / 2);
   background: gray;
 }
 
@@ -40,6 +41,9 @@
   overflow-x: hidden;
   height: 110px;
   white-space: nowrap;
+  position: absolute;
+  bottom: -20px;
+  width: 640px;
 }
 
 .thumbnail {

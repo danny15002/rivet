@@ -4,9 +4,18 @@ class Info extends React.Component {
   }
 
   render() {
-    console.log(this.props.titleInfo)
+    console.log('info', this.props.titleInfo)
     return <div className="info">
-      {this.props.titleInfo.text.text}
+      <div>
+        <div className="info-heading">
+          <h1>{this.props.title}</h1>
+          <div className="rating">{this.props.rating}</div>
+          <h5>Submitted by: {this.props.user}</h5>
+        </div>
+        <div className="info-comment">
+          <p>{this.props.comment.text.text}</p>
+        </div>
+      </div>
     </div>;
   }
 }
