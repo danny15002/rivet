@@ -17,10 +17,8 @@ const Route = ReactRouter.Route;
 const IndexRoute = ReactRouter.IndexRoute;
 
 const router = <Router history={browserHistory}>
-  <Route path='/' component={App}>
-    <IndexRoute component={MainPage}>
-    </IndexRoute>
-    <Route path='/reviews/:id' component={Modal}/>
+  <Route path='/' component={MainPage}>
+    <Route path='reviews/:picId' component={Modal}/>
   </Route>
 </Router>;
 

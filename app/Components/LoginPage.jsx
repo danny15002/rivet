@@ -37,6 +37,6 @@ class LoginPage extends React.Component {
         {this.state.signingUp ? <input placeholder="Password" onChange={this.handleInput} value={this.state.passwordCheck}/> : ''}
         <input type="button" value={buttonText} onClick={onClick}/>
       </form>
-    </div>
+    </div>;
   }
 }

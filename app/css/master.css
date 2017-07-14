@@ -1,11 +1,58 @@
 
 .modal {
   position: absolute;
-  height: calc(100vh - 4%);
-  width: calc(100vw - 4%);
+  height: auto;
+  width: 1065px;
   top: 2%;
-  left: 2%;
-  background: black;
+  left: calc((100vw - 1065px) / 2);
+  background: gray;
+}
+
+.modal-close {
+  float: right;
+  color: lightblue;
+
+  top: 1%;
+  right: 1%;
+  position: absolute;
+}
+
+.modal-close:hover {
+  cursor: pointer;
+}
+
+.modal > div {
+  float: left;
+  height: 100%;
+  display: inline-block;
+}
+
+.modal-left {
+  width: 640px;
+}
+
+.modal-right {
+  width: 425px;
+}
+
+.pic-nav {
+  background: transparent;
+  overflow-x: hidden;
+  height: 110px;
+  white-space: nowrap;
+}
+
+.thumbnail {
+  display: inline-block;
+  margin: 5px;
+  position: relative;
+  left: -45px;
+}
+
+.thumbnail > img {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
 }
 
 .small-picture {

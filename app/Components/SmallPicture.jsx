@@ -5,7 +5,7 @@ class SmallPicture extends React.Component {
 
   render() {
     return <div className="small-picture">
-      <img src={this.props.pic.ingredients[1].thumbnail.url} alt=""/>
+      <img src={this.props.pic.ingredients[1].thumbnail.url}  data-index={this.props.index} />
     </div>;
   }
 }

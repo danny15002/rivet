@@ -9,6 +9,7 @@ class MainPage extends React.Component {
     this.getData = this.getData.bind(this);
     this.updateData = this.updateData.bind(this);
     this.spawnModal = this.spawnModal.bind(this);
+    this.render = this.render.bind(this);
   }
 
   componentWillMount() {
@@ -31,15 +32,29 @@ class MainPage extends React.Component {
   }
 
   spawnModal(event) {
-    console.log(event.target);
+    console.log(event.target.dataset);
+    if (!event.target.dataset.index) return;
     const id = 'tempid';
-    ReactRouter.browserHistory.push('/reviews/' + id);
+    ReactRouter.browserHistory.push('/reviews/' + event.target.dataset.index);
   }
 
   render() {
+    console.log(this)
+    if (this.props.children) {
+      const childrenWithProps = React.cloneElement(this.props.children, {
+        pictures: this.state.pictures
+      });
+      return <div onClick={this.spawnModal}>
+        { this.state.pictures.map((pic, idx) =>
+            <SmallPicture key={idx} pic={pic} index={idx}/>)}
+        { childrenWithProps }
+      </div>;
+    }
+
     return <div onClick={this.spawnModal}>
       { this.state.pictures.map((pic, idx) =>
-          <SmallPicture key={idx} pic={pic} />)}
+          <SmallPicture key={idx} pic={pic} index={idx}/>)}
     </div>;
+
   }
 }

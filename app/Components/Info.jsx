@@ -4,8 +4,9 @@ class Info extends React.Component {
   }
 
   render() {
+    console.log(this.props.titleInfo)
     return <div className="info">
-      info
+      {this.props.titleInfo.text.text}
     </div>;
   }
 }

@@ -4,10 +4,10 @@ class BigPicture extends React.Component {
   }
 
   render() {
+    console.log('big picture', this.props);
     return <div className="big-picture">
+      <img src={this.props.picture.thumbnail.url}></img>
       <PicMenu />
-      Big Picture
-      <PicNav />
     </div>
   }
 }

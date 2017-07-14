@@ -9,7 +9,6 @@ class PicMenu extends React.Component {
 
   render() {
     return <div className="pic-menu">
-      Pic Menu
-    </div>
+    </div>;
   }
 }
