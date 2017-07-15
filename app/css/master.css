@@ -25,7 +25,7 @@
 
 .modal-right-arrow {
   position: relative;
-  left: 1094px;
+  left: 1103px;
   top: 47%;
 }
 
@@ -36,7 +36,6 @@
   top: 2%;
   left: calc((100vw - 1065px) / 2);
   top: calc((100vh - 640px) / 2);
-  background: gray;
   z-index: 5;
 }
 
@@ -62,6 +61,7 @@
 .modal-right {
   position: relative;
   width: 425px;
+  background: white;
 }
 
 #veil {
@@ -75,6 +75,11 @@
   z-index: 1;
 }
 
+.big-picture video {
+  position: relative;
+  top: -90px;
+}
+
 .pic-nav {
   background: rgba(0, 0, 0, 0.6);
   overflow-x: hidden;
@@ -84,6 +89,32 @@
   position: absolute;
   bottom: 0;
   width: 640px;
+}
+
+.pic-nav > div:first-of-type img {
+  filter: blur(3px);
+}
+
+.pic-nav > div:last-of-type img {
+  filter: blur(3px);
+}
+
+.pic-nav > div:nth-child(2) img {
+  filter: none;
+}
+
+.pic-nav > span {
+  position: absolute;
+  z-index: 5;
+  top: 31px;
+}
+
+.pic-nav-left-arrow {
+
+}
+
+.pic-nav-right-arrow {
+  left: 618px;
 }
 
 .thumbnail {
@@ -108,4 +139,26 @@
   display: inline-block;
   width: 300px;
   height: 300px;
+}
+
+.info > div {
+  margin: 15px;
+}
+
+.info-heading {
+  border-bottom: solid 1px gray;
+  margin-bottom: 25px;
+}
+
+.info-heading h5 {
+  font-weight: lighter;
+  color: lightgray;
+}
+
+.info-comment {
+  margin-top: 25px;
+}
+
+.rating-star {
+  margin-right: 5px;
 }

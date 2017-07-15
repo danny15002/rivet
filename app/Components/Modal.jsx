@@ -6,6 +6,7 @@ class Modal extends React.Component {
     };
     this.closeModal = this.closeModal.bind(this);
     this.advance = this.advance.bind(this);
+    this.changePicture = this.changePicture.bind(this);
   }
 
   componentWillMount() {
@@ -18,8 +19,13 @@ class Modal extends React.Component {
     body.classList.remove('locked-body');
   }
 
+  componentWillReceiveProps(nextProps, nextState) {
+    this.setState({
+      currentPictureIdx: 0
+    })
+  }
+
   closeModal(event) {
-    console.log('closing modal');
     event.preventDefault();
     ReactRouter.browserHistory.push('/');
   }
@@ -35,33 +41,42 @@ class Modal extends React.Component {
     }.bind(this);
   }
 
+  changePicture(pictureIdx) {
+    this.setState({
+      currentPictureIdx: pictureIdx
+    });
+  }
+
   render() {
     const activeProduct = this.props.pictures[this.props.params.picId];
-    let productPictures = activeProduct.ingredients.slice(1, activeProduct.ingredients.length - 2);
+    console.log(activeProduct)
+    const productPictures = [];
+    activeProduct.ingredients.forEach( ingredient => {
+      if (ingredient.ingredientType === 'Video' || ingredient.ingredientType === 'Photo') {
+        productPictures.push(ingredient)
+      }
+    });
 
     const activePicture = productPictures[this.state.currentPictureIdx];
     const user = !!activeProduct.socialUser ? activeProduct.socialUser.userName.text : '(No Username)';
     const rating = activeProduct.ingredients[0].rating.value;
     const title = activePicture.title.text || '(No Title)';
     //
-    console.log('rendering modal', activeProduct.identifier.id, activeProduct.ingredients)
     let comment = activeProduct.ingredients[activeProduct.ingredients.length - 1];
-    console.log('comment1', comment)
 
     if (comment.displayLabel != 'Tell us about your experience') {
       comment = activeProduct.ingredients[activeProduct.ingredients.length - 2];
     }
-    console.log('comment', comment)
     return <div>
       <div id="veil" />
       <div className='modal-container'>
-        <span onClick={this.advance(-1)} className="fa fa-chevron-left fa-3x hover-pointer modal-left-arrow"></span>
-        <span onClick={this.advance(1)} className="fa fa-chevron-right fa-3x hover-pointer modal-right-arrow"></span>
+        <span onClick={this.advance(-1)} className="fa fa-arrow-left fa-2x hover-pointer modal-left-arrow"></span>
+        <span onClick={this.advance(1)} className="fa fa-arrow-right fa-2x hover-pointer modal-right-arrow"></span>
         <span onClick={this.closeModal} className="fa fa-times fa-2x hover-pointer modal-close"></span>
         <div className="modal">
           <div className="modal-left">
             <BigPicture className="big-picture" picture={activePicture}/>
-            <PicNav pictures={productPictures}/>
+            <PicNav pictures={productPictures} changePicture={this.changePicture}/>
           </div>
 
           <div className="modal-right">

@@ -32,14 +32,12 @@ class MainPage extends React.Component {
   }
 
   spawnModal(event) {
-    console.log(event.target.dataset);
     if (!event.target.dataset.index) return;
     const id = 'tempid';
     ReactRouter.browserHistory.push('/reviews/' + event.target.dataset.index);
   }
 
   render() {
-    console.log('main page render function', pictures)
     if (this.props.children) {
       const childrenWithProps = React.cloneElement(this.props.children, {
         pictures: this.state.pictures

@@ -103,12 +103,15 @@ fs.watch('./app', { recursive: true }, (eventType, filename) => {
   const directory = __dirname + '/app/';
   // grab file name through regular expression
   // cant match index.jsx this way because there is no slash in front of it
-  let name = filename.match(/\\(\w+)\.jsx$/);
+  // let name = filename.match(/\\(\w+)\.jsx$/);
+  let name = filename.match(/\/(\w+)\.jsx$/);
   console.log('SOMETHING CHANGED AT: ', directory + filename);
   console.log('FILE CHANGED: ', name)
-  if (!name) name = filename.match(/\\(\w+)\.js$/);
+  // if (!name) name = filename.match(/\\(\w+)\.js$/);
+  if (!name) name = filename.match(/\/(\w+)\.js$/);
   if (!name) {
-    name = filename.match(/\\(\w+)\.css$/);
+    // name = filename.match(/\\(\w+)\.css$/);
+    name = filename.match(/\/(\w+)\.css$/);
     if (name) {
       readFile(directory + filename, 'utf-8')
         .then(result => writeFile('./bundle/' + name[1] + '.css', result));
