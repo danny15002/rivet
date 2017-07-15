@@ -169,6 +169,7 @@
 
 .pic-menu span {
   float: right;
+  margin: 5px;
 }
 
 @media (max-width: 1200px) {
