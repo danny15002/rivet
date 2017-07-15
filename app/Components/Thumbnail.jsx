@@ -4,7 +4,7 @@ class Thumbnail extends React.Component {
   }
 
   render() {
-    return <div className="thumbnail">
+    return <div className="thumbnail hover-pointer">
       <img src={this.props.src} data-picno={this.props.index}/>
     </div>;
   }

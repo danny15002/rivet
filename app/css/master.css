@@ -15,6 +15,7 @@
 
 .hover-pointer:hover {
   cursor: pointer;
+  border: 1px solid cornflowerblue;
 }
 
 .modal-left-arrow {
@@ -108,10 +109,12 @@
 
 .pic-nav-left-arrow {
   left: 5px;
+  color: white;
 }
 
 .pic-nav-right-arrow {
   left: 608px;
+  color: white;
 }
 
 .thumbnail {
